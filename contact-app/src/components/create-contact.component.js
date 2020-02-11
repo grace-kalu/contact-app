@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import axios from "axios";
 
 class CreateContact extends Component {
   constructor(props) {
@@ -40,12 +41,14 @@ class CreateContact extends Component {
 
   onSubmit(event) {
     event.preventDefault();
-
-    console.log(`Student successfully created!`);
-    console.log(`Name: ${this.state.name}`);
-    console.log(`Email: ${this.state.phoneNumber}`);
-    console.log(`Email: ${this.state.email}`);
-    console.log(`Roll no: ${this.state.address}`);
+    const contactObject ={
+      name = this.state.name,
+      phoneNumber = this.state.phoneNumber,
+      email = this.state.email,
+      address = this.state.address
+    };
+   axios.post('http://localhost:4000/contacts/create-contact', contactObject)
+      .then(response => console.log(response.data));
 
     this.setState({ name: "", phoneNumber: "", email: "", address: "" });
   }
