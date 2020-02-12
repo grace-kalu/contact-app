@@ -42,10 +42,10 @@ class CreateContact extends Component {
   onSubmit(event) {
     event.preventDefault();
     const contactObject ={
-      name = this.state.name,
-      phoneNumber = this.state.phoneNumber,
-      email = this.state.email,
-      address = this.state.address
+      name: this.state.name,
+      phoneNumber: this.state.phoneNumber,
+      email: this.state.email,
+      address: this.state.address
     };
    axios.post('http://localhost:4000/contacts/create-contact', contactObject)
       .then(response => console.log(response.data));
