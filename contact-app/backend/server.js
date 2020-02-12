@@ -2,7 +2,7 @@ let express = require("express");
 let mongoose = require("mongoose");
 let cors = require("cors");
 let bodyParser = require("body-parser");
-let dbConfig = require("./data/db");
+let dbConfig = require("../../data/db");
 
 // Express Route
 const contactRoute = require("../backend/routes/contact.route");
